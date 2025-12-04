@@ -12,9 +12,15 @@ class BorrowingController extends Controller
 {
     public function index()
     {
-        // Ambil data peminjaman beserta relasinya
+        // Ambil data statistik
+        $total_books = Book::count(); // Total judul buku
+        $total_members = Member::count();
+        $active_borrowings = Borrowing::whereNull('returned_at')->count();
+
+        // Ambil data tabel
         $borrowings = Borrowing::with(['book', 'member'])->latest()->get();
-        return view('borrowings.index', compact('borrowings'));
+
+        return view('borrowings.index', compact('borrowings', 'total_books', 'total_members', 'active_borrowings'));
     }
 
     public function create()
