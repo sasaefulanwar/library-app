@@ -105,12 +105,3 @@ Jika ingin berkontribusi, silakan *fork* repositori ini dan buat *Pull Request*.
 ## 📄 Lisensi
 
 Proyek ini bersifat open-source di bawah lisensi [MIT License](https://opensource.org/licenses/MIT).
-
-
-```bash
-git add .
-git commit -m "Update README and Final Polish"
-git push
-````
-
-Selamat\! Portofolio GitHub Anda sekarang sudah siap dipamerkan. Ada lagi yang bisa saya bantu? 😄
