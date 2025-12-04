@@ -50,10 +50,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('borrowings.index') }}">Dashboard</a>
+                        <a class="nav-link {{ request()->is('borrowings*') ? 'active fw-bold' : '' }}" href="{{ route('borrowings.index') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Anggota</a>
+                        <a class="nav-link {{ request()->is('books*') ? 'active fw-bold' : '' }}" href="{{ route('books.index') }}">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('members*') ? 'active fw-bold' : '' }}" href="{{ route('members.index') }}">Member</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary text-white ms-2 px-4" href="{{ route('borrowings.create') }}">+ Pinjam Baru</a>
