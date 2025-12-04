@@ -1,82 +1,116 @@
 # 📚 Sistem Manajemen Perpustakaan (Library Management System)
 
-Aplikasi manajemen perpustakaan sederhana namun powerful yang dibangun menggunakan **Laravel 12** dan **Bootstrap 5**. Proyek ini dibuat untuk menangani sirkulasi peminjaman buku, manajemen anggota, dan stok buku secara *real-time*.
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-## 📸 Screenshots
-*(Simpan screenshot aplikasi di folder `public/screenshots/` dan tautkan di sini nanti)*
-## 🚀 Fitur Utama
-- **Manajemen Buku:** CRUD Buku dengan kategori dan stok otomatis.
-- **Sirkulasi Peminjaman:**
-  - Otomatis mengurangi stok saat dipinjam.
-  - Otomatis menambah stok saat dikembalikan.
-  - Penanda status (Dipinjam/Kembali/Terlambat) menggunakan Badge warna.
-- **Validasi Bisnis:** Mencegah peminjaman jika stok habis atau user tidak valid.
+Aplikasi manajemen perpustakaan modern yang dibangun menggunakan **Laravel 12** dan **Bootstrap 5**. Proyek ini dirancang untuk mempermudah sirkulasi peminjaman buku, pengelolaan data anggota, serta manajemen stok buku secara *real-time* dan otomatis.
 
-## 🛠️ Teknologi yang Digunakan
-- **Backend:** Laravel 12
-- **Frontend:** Bootstrap 5 (Blade Templates)
-- **Database:** MySQL
+## 📸 Tampilan Aplikasi (Screenshots)
 
-## 📦 Cara Install (Installation)
+| Dashboard Utama | Peminjaman Buku |
+|:---:|:---:|
+| ![Dashboard](public/screenshots/dashboard.png) | ![Form Pinjam](public/screenshots/create.png) |
+
+*(Pastikan Anda mengganti path gambar di atas dengan screenshot asli aplikasi Anda)*
+
+## 🚀 Fitur Unggulan
+
+### 1. 📊 Dashboard & Statistik
+- Ringkasan jumlah buku, anggota aktif, dan buku yang sedang dipinjam.
+- Tampilan kartu statistik yang interaktif.
+
+### 2. 📖 Manajemen Buku (Inventory)
+- **CRUD Lengkap:** Tambah, Edit, Hapus data buku.
+- **Manajemen Stok Otomatis:**
+  - Stok berkurang otomatis saat buku dipinjam.
+  - Stok bertambah otomatis saat buku dikembalikan.
+  - Mencegah peminjaman jika stok habis (0).
+
+### 3. 👥 Manajemen Anggota
+- Registrasi anggota baru.
+- Validasi data (Email unik, format no telepon).
+- Riwayat peminjaman per anggota.
+
+### 4. 🔄 Sirkulasi Peminjaman
+- **Pencatatan Transaksi:** Mencatat tanggal pinjam dan jatuh tempo (otomatis +7 hari).
+- **Status Badge:** Indikator visual untuk status:
+  - 🟡 *Dipinjam*
+  - 🔴 *Terlambat* (Jika melewati due date)
+  - 🟢 *Dikembalikan*
+- **Validasi Bisnis:** Memastikan data valid sebelum transaksi terjadi.
+
+### 5. 🎨 UI/UX Modern
+- Menggunakan **Bootstrap 5**.
+- Font **Poppins** untuk tampilan yang bersih.
+- Komponen interaktif: Floating labels, Modal confirm, Alert notifications.
+
+## 🛠️ Teknologi
+
+- **Backend:** Laravel 12 (PHP 8.2+)
+- **Frontend:** Blade Templates, Bootstrap 5, FontAwesome
+- **Database:** MySQL / MariaDB
+
+## 📦 Cara Instalasi (Local Setup)
+
+Ikuti langkah ini untuk menjalankan proyek di komputer Anda:
 
 1. **Clone Repositori**
    ```bash
-   git clone [https://github.com/username-anda/library-app.git](https://github.com/username-anda/library-app.git)
+   git clone [https://github.com/USERNAME-ANDA/library-app.git](https://github.com/USERNAME-ANDA/library-app.git)
    cd library-app
+````
 
-2. Install Dependencies
-composer install
-npm install && npm run build
+2.  **Install Dependencies**
 
-3. Setup Environment
-Copy file .env.example menjadi .env.
-Atur koneksi database di file .env.
+    ```bash
+    composer install
+    npm install && npm run build
+    ```
 
-4.Generate Key & Migrations
-php artisan key:generate
-php artisan migrate --seed
-(Flag --seed akan mengisi database dengan data dummy buku & anggota)
+3.  **Konfigurasi Environment**
 
-5.Jalankan Server
-php artisan serve
+      - Duplikat file `.env.example` menjadi `.env`
+      - Sesuaikan konfigurasi database:
+        ```env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=library_db
+        DB_USERNAME=root
+        DB_PASSWORD=
+        ```
 
-📄 Lisensi
-Proyek ini bersifat open-source di bawah lisensi MIT license.
+4.  **Generate Key & Migrasi Database**
 
----
+    ```bash
+    php artisan key:generate
+    php artisan migrate --seed
+    ```
 
-### 2. Tambahkan Screenshot (Penting!)
+    *(Perintah `--seed` akan mengisi database dengan data dummy untuk testing)*
 
-Visual itu sangat penting.
-1.  Jalankan aplikasi (`php artisan serve`).
-2.  Buka halaman daftar peminjaman dan halaman tambah peminjaman.
-3.  Screenshot (Print Screen).
-4.  Buat folder baru: `public/screenshots`.
-5.  Simpan gambar di sana.
-6.  Uncomment (hilangkan tanda ``) bagian screenshot di `README.md` di atas.
+5.  **Jalankan Server**
 
----
+    ```bash
+    php artisan serve
+    ```
 
-### 3. Push ke GitHub
+    Buka browser dan akses: `http://127.0.0.1:8000`
 
-Buka terminal di dalam folder proyek Anda, lalu jalankan perintah ini satu per satu:
+## 🤝 Kontribusi
+
+Jika ingin berkontribusi, silakan *fork* repositori ini dan buat *Pull Request*.
+
+## 📄 Lisensi
+
+Proyek ini bersifat open-source di bawah lisensi [MIT License](https://opensource.org/licenses/MIT).
+
 
 ```bash
-# 1. Inisialisasi Git (jika belum)
-git init
-
-# 2. Masukkan semua file ke staging area
 git add .
+git commit -m "Update README and Final Polish"
+git push
+````
 
-# 3. Commit pertama
-git commit -m "First commit: Library Management System with Laravel 12"
-
-# 4. Ganti 'main' dengan nama branch utama Anda (biasanya main atau master)
-git branch -M main
-
-# 5. Hubungkan ke repositori GitHub Anda
-# (Buat repo baru dulu di github.com, lalu copy URL-nya)
-git remote add origin https://github.com/USERNAME_ANDA/NAMA_REPO.git
-
-# 6. Push kodingan
-git push -u origin main
+Selamat\! Portofolio GitHub Anda sekarang sudah siap dipamerkan. Ada lagi yang bisa saya bantu? 😄
